@@ -193,8 +193,8 @@
 \vspace{15mm}
 %\rule[0.5ex]{\linewidth}{2pt}\vspace*{-\baselineskip}\vspace*{3.2pt} 
 %\rule[0.5ex]{\linewidth}{1pt}\\[\baselineskip] 
-{\huge \sc Лабораторная работа №$2$\\
-	Боксплот Тьюки
+{\huge \sc Лабораторная работа №$4$\\
+	Эмпирические функции и ядерные оценки
 	\vspace{6mm}
 	
 }
@@ -236,7 +236,10 @@
 
 \section{Постановка задачи}
 
-Для, приведённых ниже, пяти распределений сгенерировать выборки объёмом 20, 100, для каждой выборки построить боксплот Тьюки. Для каждого распределения экспериментально определить процент выбросов, сгенерировав выборку, соответствующую распределению $1000$ раз и, вычислив среднюю долю выбросов. Сравнить полученные оценки с результатами, полученными теоретически.
+Сгенерировать выборки размером 20, 60 и 100 элементов.
+Построить на них эмпирические функции распределения и ядерные
+оценки плотности распределения на отрезке $[-4, 4]$ , для непрерывных
+распределений и на отрезке $[6, 14]$ , для распределения Пуассона.
 
 
 Распределения:
@@ -265,162 +268,101 @@ M(x,-\sqrt{3}, \sqrt{3}) =
 \end{equation}
 
 
-
 \section{Теория}
 
-Боксплот Тьюки - график, использующийся в описательной статистике, изображающий одномерное распределение вероятностей.
+Статистическим рядом называется последовательность различных элементов выборки $z_{1}, z_{2}, ... , z_{k}$, расположенных в возрастающем порядке с указанием частот $n_{1}, n_{2}, ... , n_{k}$, с которыми эти элементы содержатся в выборке.
 
-Границами ящика служат первый и третий квартили, линия в середине
-ящика — медиана. Концы усов — края статистически значимой выборки
-(без выбросов). Длину «усов» определяют разность первого квартиля и полутора межквартильных расстояний и сумма третьего квартиля и полутора межквартильных расстояний. 
+Эмпирическая функция распределения:
+\begin{equation}
+F^{*}(x) = \dfrac{1}{n}\sum\limits_{z_{i}<x}n_{i}
+\end{equation}
+Ядерная оценка плотности:
+\begin{equation}
+f_h(x) = \frac{1}{nh}\sum\limits_{i=1}^nK\left(\frac{x-x_i}{h}\right)\label{eqn:art}
+\end{equation}
+где $K$ является ядром, а $h>0$ является сглаживающим параметром, и называется шириной полосы.
 
-Выбросом в статистике называют результат измерения, выделяющийся из общей выборки.
+В данной работе в качестве ядра была выбрана плотность вероятности стандартного нормального распределения:
+\begin{equation}
+K(x) = \frac{1}{\sqrt{2\pi}}e^{-\frac{x^2}{2}}
+\end{equation}
 
-Правая и левая границы:  $X_{1} = Q_{1} - 1.5(Q_{3} - Q_{1}),\;X_{2} = Q_{3} + 1.5(Q_{3} - Q_{1})$
-
-Теоретическая вероятность выбросов:\\
-Для непрерывных распределений:
-$P^{t}_{e} = F(X_{1}^{t}) + (1 - F(X_{2}^{t}))$\\
-Для дискретных распределений:
-$P^{t}_{e} = (F(X_{1}^{t}) - P(x=X_{1}^{t})) + (1 - F(X_{2}^{t}))$
+Параметр сглаживания будем выбирать по правилу Сильвермана
+\begin{equation}
+h_{n} = 1.06*\sigma*n^{-1/5}
+\end{equation}
+где $ \sigma $ - выборочное стандартное отклонение.
 
 \section{Реализация}
-Для генерации выборки был использован $Python\;3.8.2$: модуль $stats$ библиотеки $scipy$ для генерации выборок различных распределений.
-
-Боксплот Тьюки был построен средствами библиотеки $seaborn$.
-
-Число выбросов определялось таким образом: если значение из выборки находится вне установленных левой и правых границ, то оно является выбросом.
-
+Для генерации выборки был использован $Python\;3.8.2$: модуль $stats$ библиотеки $scipy$ для генерации выборок различных распределений и библиотека $matplotlib$ для построения графиков
 
 \newpage
 \section{Результаты}
+\subsection{Эмпирические функции распределения}
 \begin{center}
 
 \begin{figure}[H]
-\caption{Boxplot распределений для размера выборки N=20 }
-\includegraphics[width=\textwidth]{boxplot_N=20.png}
+\caption{Ядерная функция плотности для нормального распределения }
+\includegraphics[width=\textwidth]{normal.png}
 \end{figure}
 
 \begin{figure}[H]
-	\caption{Boxplot стандартное нормальное распределение }
-	\includegraphics[width=\textwidth]{boxplot_N=100_normal.png} 
+	\caption{Ядерная функция плотности для распределения Лапласа }
+	\includegraphics[width=\textwidth]{laplace.png} 
 \end{figure}
 
 \begin{figure}[H]
-\caption{Boxplot стандартное распределение Лапласа }
-\includegraphics[width=\textwidth]{boxplot_N=100_laplace.png} 
+\caption{Ядерная функция плотности для распределения Коши }
+\includegraphics[width=\textwidth]{cauchy.png} 
 \end{figure}
 
 \begin{figure}[H]
-\caption{Boxplot стандартное распределение Коши }
-\includegraphics[width=\textwidth]{boxplot_N=100_cauchy.png} 
+\caption{Ядерная функция плотности для распределения Пуассона}
+\includegraphics[width=\textwidth]{poisson.png} 
 \end{figure}
 
 \begin{figure}[H]
-\caption{Boxplot распределение Пуассона }
-\includegraphics[width=\textwidth]{boxplot_N=100_poisson.png} 
+\caption{ Ядерная функция плотности для равномерного распределения}
+\includegraphics[width=\textwidth]{uniform.png} 
 \end{figure}
-
+\end{center}
+\subsection{Ядерные функции}
+\begin{center}
+	\begin{figure}[H]
+		\caption{Эмпирическая функция для стандартного нормального распределения}
+		\includegraphics[width=\textwidth]{normal_cdf.png}
+	\end{figure}
 \begin{figure}[H]
- \caption{Boxplot равномерное распределение }
-\includegraphics[width=\textwidth]{boxplot_N=100_uniform.png}
+	\caption{Эмпирическая функция для стандартного распределения Лапласа}
+	\includegraphics[width=\textwidth]{laplace_cdf.png}
 \end{figure}
-
-\begin{table}[H]
-    
-    \caption{Эксперементальные оценки доли выбросов}
-    \label{tab:my_label}
-    \begin{center}
-    \vspace{5mm}
-    \begin{tabular}{|c|c|}
-    \hline
-    Распределение & Доля выбросов\\
-    \hline
-         normal	& 0.006977\\
-         \hline
-cauchy & 0.155958\\
-\hline
-laplace	& 0.0625\\
-\hline
-uniform	& 0.0\\
-\hline
-poisson	& 0.013695\\
-\hline
-    \end{tabular}
-    
-    \end{center}
-    
-\end{table}
-
-\begin{table}[H]
-	
-	\caption{Теоретические оценки доли выбрасов}
-	\label{tab:my_label}
-	\begin{center}
-		\vspace{5mm}
-		\begin{tabular}{|c|c|}
-			\hline
-			Распределение & Доля выбросов\\
-			\hline
-			normal	&\\
-			\hline
-			n = 20   & 	0.02275    \\
-			\hline
-			n = 100   &	0.01036    \\
-			\hline
-			cauchy	&\\
-			\hline
-			n = 20   & 	0.1525    \\
-			\hline
-			n = 100  & 	0.15546    \\
-			\hline
-			laplace	&\\
-			\hline
-			n = 20    &	0.0735    \\
-			\hline
-			n = 100   &	0.06576    \\
-			\hline
-			uniform	&\\
-			\hline
-			n = 20    &	0.00135    \\
-			\hline
-			n = 100   &	0.0   \\ 
-			\hline
-			poisson	&\\
-			\hline
-			n = 20   & 	0.0264    \\
-			\hline
-			n = 100  & 	0.01478    \\
-			\hline
-		\end{tabular}
-		
-	\end{center}
-	
-\end{table}
-
+\begin{figure}[H]
+	\caption{Эмпирическая функция для стандартного распределения Коши}
+	\includegraphics[width=\textwidth]{cauchy_cdf.png}
+\end{figure}
+ \begin{figure}[H]
+	\caption{Эмпирическая функция для распределения Пуассона}
+	\includegraphics[width=\textwidth]{poisson_cdf.png}
+\end{figure}
+ \begin{figure}[H]
+	\caption{Эмпирическая функция для равномерного распределения}
+	\includegraphics[width=\textwidth]{uniform_cdf.png}
+\end{figure}
 \end{center}
 
-
 \section{Выводы}
-\par Экспериментально полученные оценки доли выбросов стремятся к теоретическим с ростом размера выборки.
-Можно вывести соотношение между процентами выбросов:
+\par Эмпирическая функция лучше приближает эталонную функцию с ростом объёма выборки.
 
-\begin{equation}
-uniform<normal<poisson<laplace<cauchy
-\end{equation}
-
-\par По полученным данным видно, что наименьший процент выбросов у равномерного распределения, а наибольший процент выбросов у распределения Коши, при чем значения этих выбросов могут отклонятся от выборочного среднего на порядки.
+\par Ядерная оценка функции плотности вероятности с выбранным нормальным ядром лучше всего приближает распределения, близкие к нормальному, с ростом размера выборки качество оценки растёт.
 
 \begin{thebibliography}{}    
-    \href{https://en.wikipedia.org/wiki/Box\_plot}{Боксплот}\\
     \href{https://docs.scipy.org/doc/scipy/reference/stats.html}{Модуль scipy.stats}\\
-    \href{https://seaborn.pydata.org/}{Модуль seaborn}
 \end{thebibliography}
 
 \section{Приложения}
 
 
-Код лаборатрной:\; \url{https://github.com/dkamianskii/MatStatLabs/tree/master/Lab3}
+Код лаборатрной:\; \url{https://github.com/dkamianskii/MatStatLabs/tree/master/Lab4}
 
 
 \end{document}
