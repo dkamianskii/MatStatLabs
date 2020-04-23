@@ -36,7 +36,7 @@ pos_characteristics = {
 }
 
 sizes = [20, 60, 100]
-
+k_h = [0.5, 1, 2]
 
 def prob_dist_table(x_e):
     a = np.sort(x_e)
@@ -70,31 +70,36 @@ def K(u):
     return np.exp(-(u**2)/2)/np.sqrt(2*np.pi)
 
 
-def density_function(x_e, var):
+def density_function(x_e, var, h_n_e):
     sum_d = 0
-    h_n = h(var.size, var)
     for x_i in var:
-        sum_d += K((x_e - x_i) / h_n)
-    return sum_d / (var.size * h_n)
+        sum_d += K((x_e - x_i) / h_n_e)
+    return sum_d / (var.size * h_n_e)
 
 
-for dist in distributions.keys():
-    fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(12, 8))
-    for i in range(0, 3):
-        r = distributions[dist].rvs(size=sizes[i])
-        if(dist == 'poisson'):
-            x = [k for k in range(6, 15)]
-            ax[i].plot(x, distributions[dist].pmf(x), 'bo', ms=4)
-            ax[i].vlines(x, 0, distributions[dist].pmf(x), colors='b', lw=2, label='PDF', alpha=0.2)
-            ax[i].plot(x, density_function(x, r), 'r-', label='Kernel density', lw=4)
-        else:
-            x = np.linspace(-4, 4, 100)
-            ax[i].plot(x, distributions[dist].pdf(x), 'b-', label='PDF', lw=2)
-            ax[i].plot(x, density_function(x, r), 'r-', label='Kernel density', lw=4)
-        ax[i].set_title('n = ' + str(sizes[i]))
-        ax[i].legend(loc='upper left')
-        ax[i].grid()
-    fig.savefig(dist)
+for size in sizes:
+    for dist in distributions.keys():
+        fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(12, 8))
+        r = distributions[dist].rvs(size=size)
+        for i in range(0, 3):
+            h_n = k_h[i]*h(r.size, r)
+            if (dist == 'poisson'):
+                x = [k for k in range(6, 15)]
+                ax[i].plot(x, distributions[dist].pmf(x), 'bo', ms=4)
+                ax[i].vlines(x, 0, distributions[dist].pmf(x), colors='b', lw=2, label='PDF', alpha=0.2)
+                ax[i].plot(x, density_function(x, r, h_n), 'r-', label='Kernel density', lw=4)
+            else:
+                x = np.linspace(-4, 4, 100)
+                ax[i].plot(x, distributions[dist].pdf(x), 'b-', label='PDF', lw=2)
+                ax[i].plot(x, density_function(x, r, h_n), 'r-', label='Kernel density', lw=4)
+            if k_h[i] != 1:
+                ax[i].set_title(str(k_h[i]) + '*h_n')
+            else:
+                ax[i].set_title('h_n')
+            ax[i].legend(loc='upper left')
+            ax[i].grid()
+        fig.suptitle('n=' + str(size) + 'with window width h =[0.5, 1, 2]', fontsize=12)
+        fig.savefig(dist + '_pdf_' + str(size))
 
 for dist in distributions.keys():
     fig, ax = plt.subplots(nrows=1, ncols=3, figsize=(12, 8))

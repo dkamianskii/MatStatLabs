@@ -180,6 +180,7 @@
 \def\contentsname{\LARGE{Содержание}}
 \thispagestyle{empty}
 \begin{center} 
+	
 \vspace{2cm} 
 {\Large \sc Санкт-Петербургский Политехнический}\\
 \vspace{2mm}
@@ -302,36 +303,87 @@ h_{n} = 1.06*\sigma*n^{-1/5}
 \begin{center}
 
 \begin{figure}[H]
-\caption{Ядерная функция плотности для нормального распределения }
-\includegraphics[width=\textwidth]{normal.png}
+\caption{Ядерная функция плотности для нормального распределения n = $20$ }
+\includegraphics[width=\textwidth]{normal_pdf_20.png}
 \end{figure}
 
 \begin{figure}[H]
-	\caption{Ядерная функция плотности для распределения Лапласа }
-	\includegraphics[width=\textwidth]{laplace.png} 
+	\caption{Ядерная функция плотности для нормального распределения n = $60$ }
+	\includegraphics[width=\textwidth]{normal_pdf_60.png}
 \end{figure}
 
 \begin{figure}[H]
-\caption{Ядерная функция плотности для распределения Коши }
-\includegraphics[width=\textwidth]{cauchy.png} 
+	\caption{Ядерная функция плотности для нормального распределения n = $100$ }
+	\includegraphics[width=\textwidth]{normal_pdf_100.png}
 \end{figure}
 
 \begin{figure}[H]
-\caption{Ядерная функция плотности для распределения Пуассона}
-\includegraphics[width=\textwidth]{poisson.png} 
+	\caption{Ядерная функция плотности для распределения Лапласа n = $20$ }
+	\includegraphics[width=\textwidth]{laplace_pdf_20.png} 
 \end{figure}
 
 \begin{figure}[H]
-\caption{ Ядерная функция плотности для равномерного распределения}
-\includegraphics[width=\textwidth]{uniform.png} 
+	\caption{Ядерная функция плотности для распределения Лапласа n = $60$ }
+	\includegraphics[width=\textwidth]{laplace_pdf_60.png} 
 \end{figure}
+
+\begin{figure}[H]
+	\caption{Ядерная функция плотности для распределения Лапласа n = $100$ }
+	\includegraphics[width=\textwidth]{laplace_pdf_100.png} 
+\end{figure}
+
+\begin{figure}[H]
+\caption{Ядерная функция плотности для распределения Коши n = $20$ }
+\includegraphics[width=\textwidth]{cauchy_pdf_20.png} 
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Ядерная функция плотности для распределения Коши n = $60$ }
+	\includegraphics[width=\textwidth]{cauchy_pdf_60.png} 
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Ядерная функция плотности для распределения Коши n = $100$ }
+	\includegraphics[width=\textwidth]{cauchy_pdf_100.png} 
+\end{figure}
+
+\begin{figure}[H]
+\caption{Ядерная функция плотности для распределения Пуассона n = $20$}
+\includegraphics[width=\textwidth]{poisson_pdf_20.png} 
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Ядерная функция плотности для распределения Пуассона n = $60$}
+	\includegraphics[width=\textwidth]{poisson_pdf_60.png} 
+\end{figure}
+
+\begin{figure}[H]
+	\caption{Ядерная функция плотности для распределения Пуассона n = $100$}
+	\includegraphics[width=\textwidth]{poisson_pdf_100.png} 
+\end{figure}
+
+\begin{figure}[H]
+\caption{ Ядерная функция плотности для равномерного распределения n = $20$}
+\includegraphics[width=\textwidth]{uniform_pdf_20.png} 
+\end{figure}
+
+\begin{figure}[H]
+	\caption{ Ядерная функция плотности для равномерного распределения n = $60$}
+	\includegraphics[width=\textwidth]{uniform_pdf_60.png} 
+\end{figure}
+
+\begin{figure}[H]
+	\caption{ Ядерная функция плотности для равномерного распределения n = $100$}
+	\includegraphics[width=\textwidth]{uniform_pdf_100.png} 
+\end{figure}
+
 \end{center}
 \subsection{Ядерные функции}
 \begin{center}
-	\begin{figure}[H]
-		\caption{Эмпирическая функция для стандартного нормального распределения}
-		\includegraphics[width=\textwidth]{normal_cdf.png}
-	\end{figure}
+\begin{figure}[H]
+	\caption{Эмпирическая функция для стандартного нормального распределения}
+	\includegraphics[width=\textwidth]{normal_cdf.png}
+\end{figure}
 \begin{figure}[H]
 	\caption{Эмпирическая функция для стандартного распределения Лапласа}
 	\includegraphics[width=\textwidth]{laplace_cdf.png}
@@ -353,7 +405,7 @@ h_{n} = 1.06*\sigma*n^{-1/5}
 \section{Выводы}
 \par Эмпирическая функция лучше приближает эталонную функцию с ростом объёма выборки.
 
-\par Ядерная оценка функции плотности вероятности с выбранным нормальным ядром лучше всего приближает распределения, близкие к нормальному, с ростом размера выборки качество оценки растёт.
+\par Ядерная оценка функции плотности вероятности с выбранным нормальным ядром лучше всего приближает распределения, близкие к нормальному, с ростом размера выборки качество оценки растёт. Исключением является распределение Коши, так как на относительно больших выборках крайне велики выбросы, которые сильно ухудшают приближение по вариационному ряду. Для улучшения качества приближения можно уменьшить ширину полосы.
 
 \begin{thebibliography}{}    
     \href{https://docs.scipy.org/doc/scipy/reference/stats.html}{Модуль scipy.stats}\\
