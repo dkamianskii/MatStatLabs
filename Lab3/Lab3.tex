@@ -328,7 +328,7 @@ $P^{t}_{e} = (F(X_{1}^{t}) - P(x=X_{1}^{t})) + (1 - F(X_{2}^{t}))$
 
 \begin{table}[H]
     
-    \caption{Эксперементальные оценки доли выбросов}
+    \caption{Теоретические оценки доли выбрасов}
     \label{tab:my_label}
     \begin{center}
     \vspace{5mm}
@@ -336,15 +336,15 @@ $P^{t}_{e} = (F(X_{1}^{t}) - P(x=X_{1}^{t})) + (1 - F(X_{2}^{t}))$
     \hline
     Распределение & Доля выбросов\\
     \hline
-         normal	& 0.006977\\
+         normal	& $0.006977$\\
          \hline
-cauchy & 0.155958\\
+cauchy & $0.155958$\\
 \hline
-laplace	& 0.0625\\
+laplace	& $0.0625$\\
 \hline
-uniform	& 0.0\\
+uniform	& $0.0$\\
 \hline
-poisson	& 0.013695\\
+poisson	& $0.013695$\\
 \hline
     \end{tabular}
     
@@ -354,43 +354,43 @@ poisson	& 0.013695\\
 
 \begin{table}[H]
 	
-	\caption{Теоретические оценки доли выбрасов}
+	\caption{Эксперементальные оценки доли выбросов}
 	\label{tab:my_label}
 	\begin{center}
 		\vspace{5mm}
-		\begin{tabular}{|c|c|}
+		\begin{tabular}{|c|c|c|}
 			\hline
-			Распределение & Доля выбросов\\
+			Распределение & Средняя доля выбросов & Дисперсия доли выбросов\\
 			\hline
-			normal	&\\
+			normal	& &\\
 			\hline
-			n = 20   & 	0.02275    \\
+			n = 20   & 	$0.02$ &  $ 0.00152 $ \\
 			\hline
-			n = 100   &	0.01036    \\
+			n = 100   &	$0.01$ & $ 0.000161 $   \\
 			\hline
-			cauchy	&\\
+			cauchy	& &\\
 			\hline
-			n = 20   & 	0.1525    \\
+			n = 20   & 	$0.15$ & $ 0.004827 $   \\
 			\hline
-			n = 100  & 	0.15546    \\
+			n = 100  & 	$0.155$  & $ 0.001067 $  \\
 			\hline
-			laplace	&\\
+			laplace	& &\\
 			\hline
-			n = 20    &	0.0735    \\
+			n = 20    &	$0.07$  & $ 0.004469 $  \\
 			\hline
-			n = 100   &	0.06576    \\
+			n = 100   &	$0.065$ & $ 0.000995 $   \\
 			\hline
-			uniform	&\\
+			uniform	& &\\
 			\hline
-			n = 20    &	0.00135    \\
+			n = 20    &	$0.002$ & $ 0.000212 $   \\
 			\hline
-			n = 100   &	0.0   \\ 
+			n = 100   &	$0.0$ & $ 0.0 $  \\ 
 			\hline
-			poisson	&\\
+			poisson	& &\\
 			\hline
-			n = 20   & 	0.0264    \\
+			n = 20   & 	$0.02$ & $ 0.002284 $   \\
 			\hline
-			n = 100  & 	0.01478    \\
+			n = 100  & 	$0.014$ & $ 0.000285 $   \\
 			\hline
 		\end{tabular}
 		
@@ -402,7 +402,7 @@ poisson	& 0.013695\\
 
 
 \section{Выводы}
-\par Экспериментально полученные оценки доли выбросов стремятся к теоретическим с ростом размера выборки.
+\par Экспериментально полученные оценки доли выбросов стремятся к теоретическим с ростом размера выборки, Значение для средней доли выбросов было ограничено первым значащим разрядом в значении дисперсии.
 Можно вывести соотношение между процентами выбросов:
 
 \begin{equation}
@@ -411,10 +411,12 @@ uniform<normal<poisson<laplace<cauchy
 
 \par По полученным данным видно, что наименьший процент выбросов у равномерного распределения, а наибольший процент выбросов у распределения Коши, при чем значения этих выбросов могут отклонятся от выборочного среднего на порядки.
 
-\begin{thebibliography}{}    
-    \href{https://en.wikipedia.org/wiki/Box\_plot}{Боксплот}\\
-    \href{https://docs.scipy.org/doc/scipy/reference/stats.html}{Модуль scipy.stats}\\
-    \href{https://seaborn.pydata.org/}{Модуль seaborn}
+\begin{thebibliography}{}
+	\begin{enumerate}
+		\item \href{https://en.wikipedia.org/wiki/Box\_plot}{Боксплот}
+		\item \href{https://docs.scipy.org/doc/scipy/reference/stats.html}{Модуль scipy.stats}
+		\item \href{https://seaborn.pydata.org/}{Модуль seaborn}
+	\end{enumerate}    
 \end{thebibliography}
 
 \section{Приложения}

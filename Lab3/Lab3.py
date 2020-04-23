@@ -87,8 +87,9 @@ for dist in distributions.keys():
     file.write('percent of ejection experimental:  ')
     for size in sizes:
         varis = [ejections(distributions[dist].rvs(size))/size for i in range(0, 1000)]
-        percent_of_ejections = np.array(varis).sum()/1000
-        file.write('N=' + str(size) + ':     ')
+        percent_of_ejections = np.mean(varis)
+        variance = np.var(varis)
+        file.write('N=' + str(size) + ',  D=' + str(variance) + ' :     ')
         file.write(str(percent_of_ejections) + '     ')
     file.write('\n\n')
 

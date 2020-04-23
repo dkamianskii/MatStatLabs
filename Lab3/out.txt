@@ -1,20 +1,20 @@
 normal
 theoretical percent of ejection:  0.006976603239280177
-percent of ejection experimental:  N=20:     0.022400000000000003     N=100:     0.010459999999999999     
+percent of ejection experimental:  N=20,  D=0.00152564 :     0.0206     N=100,  D=0.0001611775 :     0.010350000000000002     
 
 laplace
 theoretical percent of ejection:  0.0625
-percent of ejection experimental:  N=20:     0.07375000000000001     N=100:     0.06556000000000002     
+percent of ejection experimental:  N=20,  D=0.0044692775 :     0.07585000000000001     N=100,  D=0.0009956156 :     0.06562     
 
 cauchy
 theoretical percent of ejection:  0.15595826075473873
-percent of ejection experimental:  N=20:     0.15165     N=100:     0.15674000000000002     
+percent of ejection experimental:  N=20,  D=0.0048274375 :     0.15225     N=100,  D=0.0010673711 :     0.15517     
 
 uniform
 theoretical percent of ejection:  0.0
-percent of ejection experimental:  N=20:     0.00255     N=100:     0.0     
+percent of ejection experimental:  N=20,  D=0.0002128775 :     0.0021500000000000004     N=100,  D=0.0 :     0.0     
 
 poisson
 theoretical percent of ejection:  0.013695268598382881
-percent of ejection experimental:  N=20:     0.02495     N=100:     0.014199999999999999     
+percent of ejection experimental:  N=20,  D=0.00228475 :     0.0245     N=100,  D=0.00028593989999999996 :     0.01449     
 
