@@ -113,3 +113,25 @@ for size in sizes:
         ax[i].add_artist(ell)
         plt.tight_layout()
         fig.savefig('ellipse n=' + str(size))
+
+
+# fig, axes = plt.subplots(nrows=1, ncols=3, figsize=(10, 12))
+# ax = axes.flatten()
+# for i in range(0, 3):
+#     points = normal_dist(ro[i], 2)
+#     ax[i].set_title('n = ' + str(2) + ', r=' + str(ro[i]))
+#     nstd = 1
+#     r_x = [point[0] for point in points]
+#     r_y = [point[1] for point in points]
+#     ax[i].plot(r_x, r_y, 'bo', ms=4)
+#     cov = np.cov(r_x, r_y)
+#     vals, vecs = eigsorted(cov)
+#     theta = np.degrees(np.arctan2(*vecs[:, 0][::-1]))
+#     w, h = 2 * nstd * np.sqrt(vals)
+#     ell = Ellipse(xy=(np.mean(r_x), np.mean(r_y)),
+#                   width=w, height=h,
+#                   angle=theta, color='black')
+#     ell.set_facecolor('none')
+#     ax[i].add_artist(ell)
+#     plt.tight_layout()
+#     fig.savefig('ellipse_n=' + str(2))

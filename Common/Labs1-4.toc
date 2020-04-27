@@ -1,0 +1,24 @@
+\babel@toc {russian}{}
+\contentsline {section}{\numberline {1}{\cyrillictext \CYRS \cyrp \cyri \cyrs \cyro \cyrk \ \cyri \cyrl \cyrl \cyryu \cyrs \cyrt \cyrr \cyra \cyrc \cyri \cyrishrt }}{3}{section.1}%
+\contentsline {section}{\numberline {2}{\cyrillictext \CYRS \cyrp \cyri \cyrs \cyro \cyrk \ \cyrt \cyra \cyrb \cyrl \cyri \cyrc }}{4}{section.2}%
+\contentsline {section}{\numberline {3}Постановка задачи}{5}{section.3}%
+\contentsline {section}{\numberline {4}Теория}{5}{section.4}%
+\contentsline {subsection}{\numberline {4.1}Плотности распределения вероятностей}{5}{subsection.4.1}%
+\contentsline {subsection}{\numberline {4.2}Характеристики положения}{6}{subsection.4.2}%
+\contentsline {subsection}{\numberline {4.3}Боксплот Тьюки}{6}{subsection.4.3}%
+\contentsline {subsection}{\numberline {4.4}Эмпирические функции и ядерные оценки}{6}{subsection.4.4}%
+\contentsline {section}{\numberline {5}Реализация}{7}{section.5}%
+\contentsline {section}{\numberline {6}Результаты}{8}{section.6}%
+\contentsline {subsection}{\numberline {6.1}Плотности распределения вероятностей}{8}{subsection.6.1}%
+\contentsline {subsection}{\numberline {6.2}Характеристики положения}{12}{subsection.6.2}%
+\contentsline {subsection}{\numberline {6.3}Боксплот Тьюки}{14}{subsection.6.3}%
+\contentsline {subsection}{\numberline {6.4}Ядерные функции}{20}{subsection.6.4}%
+\contentsline {subsection}{\numberline {6.5}Эмпирические функции распределения}{28}{subsection.6.5}%
+\contentsline {section}{\numberline {7}Обсуждение}{30}{section.7}%
+\contentsline {subsection}{\numberline {7.1}Характеристики положения}{30}{subsection.7.1}%
+\contentsline {section}{\numberline {8}Выводы}{30}{section.8}%
+\contentsline {subsection}{\numberline {8.1}Плотности распределения вероятностей}{30}{subsection.8.1}%
+\contentsline {subsection}{\numberline {8.2}Характеристики положения}{31}{subsection.8.2}%
+\contentsline {subsection}{\numberline {8.3}Боксплот Тьюки}{31}{subsection.8.3}%
+\contentsline {subsection}{\numberline {8.4}Эмпирические функции и ядерные оценки}{31}{subsection.8.4}%
+\contentsline {section}{\numberline {9}{\cyrillictext \CYRS \cyrp \cyri \cyrs \cyro \cyrk \ \cyrl \cyri \cyrt \cyre \cyrr \cyra \cyrt \cyru \cyrr \cyrery }}{32}{section.9}%
