@@ -1,0 +1,13 @@
+ls coefs :  Intercept    1.924716
+x            1.739737
+dtype: float64
+lad coefs :  Intercept    1.742526
+x            1.935446
+dtype: float64
+results with distortion in y
+ls coefs :  Intercept    2.067573
+x            0.311165
+dtype: float64
+lad coefs :  Intercept    1.707785
+x            1.877536
+dtype: float64
